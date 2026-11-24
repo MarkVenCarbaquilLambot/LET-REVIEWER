@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7fb">
+  <meta name="description" content="A clean, customizable LET Reviewer practice website.">
+  <title>LET Reviewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="home-link" aria-label="LET Reviewer home">
+      <span class="brand-mark">LR</span>
+      <span>LET Reviewer</span>
+    </a>
+    <div class="header-actions">
+      <span class="header-caption">Practice with purpose</span>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle dark mode">
+        <span id="theme-icon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section id="menu-screen" class="screen">
+      <div class="intro">
+        <p class="eyebrow">LICENSURE EXAMINATION FOR ALLAN BODIOS</p>
+        <h1>Prepare with confidence.</h1>
+        <p class="lead">Choose a reviewer category and work through your practice questions one at a time.</p>
+      </div>
+      <div class="section-heading">
+        <div><p class="eyebrow">YOUR REVIEW SETS</p><h2>Choose a category</h2></div>
+        <span class="small-note">7 categories</span>
+      </div>
+      <div id="category-grid" class="category-grid"></div>
+      <div class="tip-panel">
+        <span class="tip-icon">✦</span>
+        <div><strong>Study tip</strong><p>Read each question carefully. Your results will show the items you may want to review again.</p></div>
+      </div>
+    </section>
+
+    <section id="quiz-screen" class="screen hidden">
+      <div class="quiz-heading">
+        <button class="back-link" id="back-to-menu" type="button">← All categories</button>
+        <span id="category-label" class="category-pill"></span>
+      </div>
+      <div class="quiz-stats">
+        <div><span class="stat-label">PROGRESS</span><strong id="question-counter">Question 1 of 1</strong></div>
+        <div><span class="stat-label">CORRECT</span><strong id="score-counter">0</strong></div>
+        <div><span class="stat-label">TIME ELAPSED</span><strong id="timer">00:00</strong></div>
+      </div>
+      <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+      <article class="question-card">
+        <div class="question-card-top"><span class="question-label">QUESTION</span><span id="question-number" class="question-number">01</span></div>
+        <h2 id="question-text"></h2>
+        <div id="choices" class="choices"></div>
+        <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+        <div class="question-actions">
+          <span id="answer-hint" class="answer-hint">Select one answer to continue.</span>
+          <button id="next-button" class="primary-button hidden" type="button">Next question <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+      <p class="quiz-footnote">Your answers are recorded for this attempt and summarized at the end.</p>
+    </section>
+
+    <section id="report-screen" class="screen hidden">
+      <div class="report-intro">
+        <p class="eyebrow">REVIEW SESSION COMPLETE</p>
+        <h1>Here are your results.</h1>
+        <p id="report-subtitle" class="lead"></p>
+      </div>
+      <div class="score-panel">
+        <div class="score-main"><span class="stat-label">YOUR SCORE</span><strong id="result-percent">0%</strong><span id="result-fraction" class="muted">0 out of 0 correct</span></div>
+        <div class="score-divider"></div>
+        <div class="score-detail"><span class="score-dot green"></span><div><strong id="result-correct">0</strong><span>Correct</span></div></div>
+        <div class="score-detail"><span class="score-dot red"></span><div><strong id="result-wrong">0</strong><span>Incorrect</span></div></div>
+        <div class="score-detail"><span class="score-dot blue"></span><div><strong id="result-time">00:00</strong><span>Time elapsed</span></div></div>
+      </div>
+      <div class="report-toolbar">
+        <div><p class="eyebrow">ANSWER BREAKDOWN</p><h2>Question review</h2></div>
+        <div class="filter-group" role="group" aria-label="Filter answer review">
+          <button class="filter-button active" data-filter="all" type="button">All</button>
+          <button class="filter-button" data-filter="wrong" type="button">Incorrect only</button>
+        </div>
+      </div>
+      <div id="report-list" class="report-list"></div>
+      <div id="no-wrong" class="empty-state hidden">Great work! There are no incorrect answers to review.</div>
+      <div class="report-actions">
+        <button id="review-wrong-button" class="secondary-button" type="button">Review incorrect answers</button>
+        <button id="retry-button" class="primary-button" type="button">Retake full quiz</button>
+        <button id="return-button" class="quiet-button" type="button">Back to categories</button>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>LET Reviewer</span><span>Built for focused practice</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
